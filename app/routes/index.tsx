@@ -1,32 +1,38 @@
+import { Link, List, ListIcon, ListItem, Heading } from '@chakra-ui/react';
+import { MdCheckCircle, MdSettings } from "react-icons/md";
+
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
+    <div>
+      <Heading>Welcome to Remix</Heading>
+      <List spacing={3}>
+        <ListItem>
+          <ListIcon as={MdCheckCircle} color='green.500' />
+          <Link
             href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
           >
             Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
+          </Link>
+        </ListItem>
+        <ListItem>
+          <ListIcon as={MdCheckCircle} color='green.500' />
+          <Link target="_blank" href="https://remix.run/docs">
             Remix Docs
-          </a>
-        </li>
-      </ul>
+          </Link>
+        </ListItem>
+        <ListItem>
+          <ListIcon as={MdCheckCircle} color='green.500' />
+          <Link target="_blank" href="https://marca.com">
+            Marca
+          </Link>
+        </ListItem>
+        <ListItem>
+          <ListIcon as={MdSettings} color='green.500' />
+          <Link target="_blank" href="https://old.reddit.com">
+            old reddit
+          </Link>
+        </ListItem>
+      </List>
     </div>
   );
 }
