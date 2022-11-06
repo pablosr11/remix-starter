@@ -1,23 +1,19 @@
 import { Heading, Link, ListItem, OrderedList } from "@chakra-ui/layout";
 import { VStack } from "@chakra-ui/react";
+import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 import { getRestaurants } from "~/models/restaurant.server";
 
-type LoaderData = {
-    // this is a handy way to say: "posts is whatever type getPosts resolves to"
-    restaurants: Awaited<ReturnType<typeof getRestaurants>>;
-};
+export async function loader({ request }: LoaderArgs) {
+    const restaurants = await getRestaurants()
+    return json({ restaurants })
+}
 
-export const loader = async () => {
-    return json<LoaderData>({
-        restaurants: await getRestaurants(),
-    });
-};
 
 export default function Restaurants() {
-    const { restaurants } = useLoaderData();
+    const { restaurants } = useLoaderData<typeof loader>()
     console.log(restaurants)
     return (
         <VStack>

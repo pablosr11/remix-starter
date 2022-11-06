@@ -1,6 +1,7 @@
 import { prisma } from "~/db.server";
 
 type Restaurant = {
+    id: string;
     name: string;
     score: number;
 };
