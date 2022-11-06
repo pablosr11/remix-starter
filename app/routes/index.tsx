@@ -9,7 +9,7 @@ export default function Index() {
         <ListItem>
           <ListIcon as={MdCheckCircle} color='green.500' />
           <Link
-            href="https://remix.run/tutorials/jokes"
+            href="https://remix.run/tutorials/jokes" color='teal.500'
           >
             Deep Dive Jokes App Tutorial
           </Link>
